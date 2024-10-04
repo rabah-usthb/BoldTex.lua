@@ -1,7 +1,7 @@
 local bold = {}
 
 function bold.setKeyMap(key)
-   vim.api.nvim_set_keymap('v', key, ':lua bold.setTextBF()<CR>', { noremap = true, silent = true })  
+   vim.api.nvim_set_keymap('v', key, ':lua require("Bold").setTextBF()<CR>', { noremap = true, silent = true })  
 end
 
 function bold.getFileExtension()
