@@ -18,7 +18,7 @@ end
 
 function bold.fetchSelectedText(start_line,start_col,end_line,end_col)
   local buffer = vim.api.nvim_get_current_buf()
-  local lines = vim.api.nvim_buf_get_lines(buffer,start_line,end_line,false)
+  local lines = vim.api.nvim_buf_get_lines(buffer,start_line-1,end_line,false)
  -- print("Lines: " .. table.concat(lines, "\n"))  -- Use table.concat to join the lines
     
   local selectedLines = ""
@@ -45,7 +45,7 @@ function bold.setTextBF()
     local start_col = start_pos[3]
     local end_line = end_pos[2]
     local end_col = end_pos[3] 
-    print("sLine "..start_line.." sCol "..start_col.." eLine "..end_line.." eCol "..end_col)
+    --print("sLine "..start_line.." sCol "..start_col.." eLine "..end_line.." eCol "..end_col)
     local selectedLines =  bold.fetchSelectedText(start_line,start_col,end_line,end_col)
     local newLines  = "textbf{"..selectedLines.."}"
     local buffer = vim.api.nvim_get_current_buf()
