@@ -19,7 +19,7 @@ end
 function bold.fetchSelectedText(start_line,start_col,end_line,end_col)
   local buffer = vim.api.nvim_get_current_buf()
   local lines = vim.api.nvim_buf_get_lines(buffer,start_line,end_line,false)
-  print("Lines: " .. table.concat(lines, "\n"))  -- Use table.concat to join the lines
+ -- print("Lines: " .. table.concat(lines, "\n"))  -- Use table.concat to join the lines
     
   local selectedLines = ""
   if start_line == end_line  then
@@ -45,6 +45,7 @@ function bold.setTextBF()
     local start_col = start_pos[3]
     local end_line = end_pos[2]
     local end_col = end_pos[3] 
+    print("sLine "..start_line.." sCol "..start_col.." eLine "..end_line.." eCol "..end_col)
     local selectedLines =  bold.fetchSelectedText(start_line,start_col,end_line,end_col)
     local newLines  = "textbf{"..selectedLines.."}"
     local buffer = vim.api.nvim_get_current_buf()
@@ -54,7 +55,7 @@ end
 function bold.main(key)
    local keyMap =  key or 'f'     
     if bold.isTexFile() then
-        print("is tex file yaya")
+   --     print("is tex file yaya")
         bold.setKeyMap(keyMap)
     end
 end
