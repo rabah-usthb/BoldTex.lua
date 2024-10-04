@@ -1,5 +1,10 @@
 local bold = {}
 
+function bold.setKeyMap(key)
+   local keyMap =  key or 'f'     
+   vim.api.nvim_set_keymap('v', keyMap, ':lua callSetTextBF()<CR>', { noremap = true, silent = true })  
+end
+
 function bold.getFileExtension()
     local filePath = vim.api.nvim_buf_get_name(0)
     local extension = filePath:match("^.+(%..+)$")
