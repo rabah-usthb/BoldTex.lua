@@ -2,7 +2,7 @@ local bold = {}
 
 function bold.setKeyMap(key)
    local keyMap =  key or 'f'     
-   vim.api.nvim_set_keymap('v', keyMap, ':lua callsetTextBF()<CR>', { noremap = true, silent = true })  
+   vim.api.nvim_set_keymap('v', keyMap, ':lua setTextBF()<CR>', { noremap = true, silent = true })  
 end
 
 function bold.getFileExtension()
@@ -51,7 +51,8 @@ function bold.setTextBF()
 end
 
 function bold.main(key)
-    if bold.isTexFile then
+    if bold.isTexFile() then
+        print("is tex file yaya")
         bold.setKeyMap(key)
     end
 end
