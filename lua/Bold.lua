@@ -23,11 +23,11 @@ function bold.fetchSelectedText(start_line,start_col,end_line,end_col)
     
   local selectedLines = {}
   if start_line == end_line  then
-    selectedLines[1] = string.sub(lines[1],0,start_col-1) .. " textbf{"..string.sub(lines[1],start_col,end_col)..'}' .. string.sub(lines[1],end_col+1,#lines[1])
+    selectedLines[1] = string.sub(lines[1],0,start_col-1) .. " \\textbf{"..string.sub(lines[1],start_col,end_col)..'}' .. string.sub(lines[1],end_col+1,#lines[1])
   else
       for i = 1, #lines, 1 do
        if i == 1 then
-         selectedLines[i] = string.sub(lines[1],0,start_col-1) .. " textbf{" .. string.sub(lines[1],start_col,#lines[1])
+         selectedLines[i] = string.sub(lines[1],0,start_col-1) .. " \\textbf{" .. string.sub(lines[1],start_col,#lines[1])
            elseif i == (end_line - start_line + 1) then
           selectedLines[i] = string.sub(lines[i],0,end_col)..'}'.. string.sub(lines[i],end_col+1,#lines[i])
             else
