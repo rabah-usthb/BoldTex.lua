@@ -49,6 +49,7 @@ function bold.setTextBF()
     local end_col = end_pos[3] 
     --print("sLine "..start_line.." sCol "..start_col.." eLine "..end_line.." eCol "..end_col)
     local selectedLines , stringLines =  bold.fetchSelectedText(start_line,start_col,end_line,end_col)
+    print("String Lines : "..stringLines)
     local newLines  = "textbf{"..selectedLines.."}"
     newLines = string.sub(stringLines,0,start_col-1) .. newLines .. string.sub(stringLines,end_col+1,#stringLines)
     local buffer = vim.api.nvim_get_current_buf()
