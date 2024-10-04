@@ -41,6 +41,7 @@ end
         if start_col~=end_col then
             bold.setTextBF(start_line,start_col,end_line,end_col)
         end
+        vim.wait(100)
         until (not bold.isVisualMode())
     end
 
