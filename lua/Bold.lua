@@ -19,6 +19,7 @@ end
 function bold.fetchSelectedText(start_line,start_col,end_line,end_col)
   local buffer = vim.api.nvim_get_current_buf()
   local lines = vim.api.nvim_buf_get_lines(buffer,start_line,end_line,false)
+  print("Lines : "..lines)
   local selectedLines = ""
   if start_line == end_line  then
     selectedLines = string.sub(lines[1],start_col,end_col)
