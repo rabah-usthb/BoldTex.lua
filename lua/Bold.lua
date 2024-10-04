@@ -28,13 +28,13 @@ function bold.fetchSelectedText(start_line,start_col,end_line,end_col)
     stringLines = lines[1]
   else
       for i = 1, #lines, 1 do
-          stringLines = stringLines .. lines[i]
+          stringLines = stringLines .. lines[i] .. '\n'
        if i == 1 then
          selectedLines = string.sub(lines[1],start_line,#lines[1])
            elseif i == (end_line - start_line + 1) then
-          selectedLines = selectedLines .. string.sub(lines[i],0,end_col)
+          selectedLines = selectedLines .. string.sub(lines[i],0,end_col) .. '\n'
             else
-                selectedLines = selectedLines .. lines[i]
+                selectedLines = selectedLines .. lines[i] .. '\n'
        end
       end
   end
